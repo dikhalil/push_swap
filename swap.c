@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 15:06:29 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/13 20:58:21 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/14 00:34:22 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void s_no_print(t_list **s)
 {
-    void *tmp;
+    long *tmp;
 
     tmp = (*s)->content;
     (*s)->content = (*s)->next->content;

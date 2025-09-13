@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:25:37 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/10 11:58:37 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/14 00:19:30 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 
 typedef struct s_list
 {
-	void			*content;
+	long			*content;
+	int		index;
 	struct s_list	*next;
 }	t_list;
 

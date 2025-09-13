@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 14:55:02 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/13 22:33:03 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/13 23:26:10 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,17 @@
 #include "./libft/libft.h"
 #include <limits.h>
 
-typedef struct s_list 
-{
-    void *content;
-    int index;
-    struct s_list *next;
-}   t_list;
-
 /* ---------------- utils ---------------- */
-int has_duplicates(t_list *a);
 int parse_args(char **argv, t_list **a);
 int is_sorted(t_list *a);
 void index_stack(t_list *s);
 void move_min_top(t_list **s);
+void del_int(void *content);
 t_list      *ft_lstlastprev(t_list *lst);
+
+/* ---------------- Push Swap ---------------- */
+
+void push_swap(t_list **a, t_list **b);
 
 /* ---------------- Swap ---------------- */
 void        sa(t_list **a);

@@ -6,24 +6,24 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 15:27:37 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/13 20:58:21 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/14 01:15:26 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap"
+#include "push_swap.h"
 
-int has_duplicates(t_list *a)
+static int has_duplicates(t_list *a)
 {
     t_list *i;
     t_list *j;
 
     i = a;
-    while (a)
+    while (i)
     {
         j = i->next;
         while (j)
         {
-            if ((long)(j->content) == (long)(i->content))
+            if (*(j->content) == *(i->content))
                 return (1);
             j = j->next; 
         }
@@ -31,26 +31,41 @@ int has_duplicates(t_list *a)
     }
     return (0);
 }
+static int is_number(char *str)
+{
+    int j = 0;
+    if (str[0] == '-' || str[0] == '+')
+        j++;
+    while (str[j])
+    {
+        if (!ft_isdigit(str[j]))
+            return 0; 
+        j++;
+    }
+    return 1; 
+}
 
 int parse_args(char **argv, t_list **a)
 {
     int i;
-    long value;
+    long *value;
     t_list *new_node;
 
     i = 1;
-    value = 0;
     new_node = NULL;
     while (argv[i])
     {
-        if (!ft_isdigit(argv[i]))
+        if (!is_number(argv[i]))
             return (0);
-        value = ft_atoi(argv[i]);
-        if (value < INT_MIN || value > INT_MAX)
+        value = malloc(sizeof(long));
+            if (!value)
+                return (0);
+        *value = ft_atoi(argv[i]);
+        if (*value < INT_MIN || *value > INT_MAX)
             return (0);
-        new_node = ft_lstnew((void *)value);
+        new_node = ft_lstnew(value);
         if (!new_node)
-            return (0);
+            return (0);       
         ft_lstadd_back(a, new_node);
         i++;
     }
@@ -63,7 +78,7 @@ int is_sorted(t_list *a)
 {
     while (a && a->next)
     {
-        if ((long)(a->content) > (long)(a->next->content))
+        if (*(a->content) > *(a->next->content))
             return (0);
         a = a->next;
     }
@@ -96,7 +111,7 @@ void index_stack(t_list *s)
         tmp2 = s;
         while (tmp2)
         {
-            if ((long)(tmp1->content) > (long)(tmp2->content))
+            if (*(tmp1->content) > *(tmp2->content))
                 index++;
             tmp2 = tmp2->next;
         }
@@ -109,9 +124,13 @@ void move_min_top(t_list **s)
 {
     int pos;
     int size;
+    int move;
     t_list *tmp;
 
+    if (!s || !*s)
+        return ;
     pos = 0;
+    move = 0;
     size = ft_lstsize(*s);
     tmp = *s;
     while (tmp)
@@ -122,9 +141,17 @@ void move_min_top(t_list **s)
         tmp = tmp->next;
     }
     if (pos <= size / 2)
-        while (pos-- > 0)
+        while (pos--)
             ra(s);
     else
-        while (pos++ < size)
+    {
+        move = size - pos;
+        while (move--)
             rra(s);
+    }
+}
+void del_int(void *content)
+{
+    if (content)
+        free(content);
 }

@@ -30,7 +30,7 @@ $(NAME): $(LIBFT) $(OBJS)
 
 # Build libft if not already
 $(LIBFT):
-	make -C $(LIBFT_PATH) all
+	make -C $(LIBFT_PATH) all bonus
 
 # ---------------- Clean object files ----------------
 clean:
