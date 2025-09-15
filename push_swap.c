@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 14:55:00 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/15 21:12:35 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:35:19 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
         ft_lstclear(&a);
         return (1);
     }
-    if (!is_sorted(a))
+    if (!ft_issorted(a))
         push_swap(&a, &b);
     ft_lstclear(&a);
     ft_lstclear(&b);

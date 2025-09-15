@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 14:55:02 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/15 21:11:38 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:20:39 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@
 #include <limits.h>
 
 /* ---------------- utils ---------------- */
-int has_duplicates(t_list *a);
 int parse_args(char **argv, t_list **a);
-int is_sorted(t_list *a);
 void index_stack(t_list **a);
 void move_min_top(t_list **a);
-t_list      *ft_lstlastprev(t_list *lst);
 
 /* ---------------- Operations ---------------- */
 void push(t_list **from, t_list **to, char *op);

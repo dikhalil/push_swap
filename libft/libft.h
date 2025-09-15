@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:25:37 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/15 21:02:01 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:26:01 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ t_list		*ft_lstnew(long content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
+t_list 		*ft_lstlastprev(t_list *s);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst);
+int			ft_issorted(t_list *a);
 
 /* I/O Functions */
 void		ft_putendl_fd(char *s, int fd);
@@ -45,6 +47,7 @@ void	ft_putchar_fd(char c, int fd);
 
 /* Character Classification Functions */
 int			ft_isdigit(int d);
+int			ft_isnumber(char *str);
 
 /* Memory Allocation Functions */
 long			ft_atoi(const char *str);

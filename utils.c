@@ -6,43 +6,30 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 15:27:37 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/15 21:37:27 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:35:35 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int has_duplicates(t_list *a)
+static int has_duplicates(t_list *a)
 {
-    t_list *i;
-    t_list *j;
+    t_list *node;
+    t_list *next_node;
 
-    i = a;
-    while (i)
+    node = a;
+    while (node)
     {
-        j = i->next;
-        while (j)
+        next_node = node->next;
+        while (next_node)
         {
-            if (j->content == i->content)
+            if (next_node->content == node->content)
                 return (1);
-            j = j->next; 
+            next_node = next_node->next; 
         }
-        i = i->next;
+        node = node->next;
     }
     return (0);
-}
-static int is_number(char *str)
-{
-    int j = 0;
-    if (str[0] == '-' || str[0] == '+')
-        j++;
-    while (str[j])
-    {
-        if (!ft_isdigit(str[j]))
-            return 0; 
-        j++;
-    }
-    return 1; 
 }
 
 int parse_args(char **argv, t_list **a)
@@ -56,7 +43,7 @@ int parse_args(char **argv, t_list **a)
     new_node = NULL;
     while (argv[i])
     {
-        if (!is_number(argv[i]))
+        if (!ft_isnumber(argv[i]))
             return (0);
         value = ft_atoi(argv[i]);
         if (value < INT_MIN || value > INT_MAX)
@@ -70,29 +57,6 @@ int parse_args(char **argv, t_list **a)
     if (has_duplicates(*a))
         return (0);
     return (1);
-}
-
-int is_sorted(t_list *a)
-{
-    while (a && a->next)
-    {
-        if (a->content > a->next->content)
-            return (0);
-        a = a->next;
-    }
-    return (1);
-}
-
-t_list *ft_lstlastprev(t_list *s)
-{
-    t_list *prev;
-
-    if (!s || !s->next)
-        return (NULL);
-    while (s->next->next)
-        s = s->next;
-    prev = s;
-    return (prev);
 }
 
 void index_stack(t_list **a)

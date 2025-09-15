@@ -1,5 +1,6 @@
 # ---------------- Core Source files ----------------
 SRCS =  ft_isdigit.c \
+		ft_isnumber.c \
 		ft_strncmp.c \
 		ft_atoi.c \
 		ft_putstr_fd.c \
@@ -9,8 +10,10 @@ SRCS =  ft_isdigit.c \
 		ft_lstadd_front.c \
 		ft_lstclear.c \
 		ft_lstlast.c \
+		ft_lstlastprev.c \
 		ft_lstnew.c \
-		ft_lstsize.c
+		ft_lstsize.c \
+		ft_issorted.c
 # Object files
 OBJS = $(SRCS:.c=.o)
 

@@ -6,13 +6,13 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 21:29:37 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/15 20:42:59 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:17:44 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int max_index(t_list *a)
+static int max_index(t_list *a)
 {
     t_list *tmp;
     int index;
@@ -27,7 +27,7 @@ int max_index(t_list *a)
     }
     return (index);
 }
-int bits_count(t_list *a, int (*max_index) (t_list *a))
+static int bits_count(t_list *a, int (*max_index) (t_list *a))
 {
     int bits;
     int max;
