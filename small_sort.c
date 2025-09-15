@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 17:53:40 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/14 01:11:28 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 20:45:56 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,32 @@
 void sort_2(t_list **a)
 {
     if ((*a)->index > (*a)->next->index)
-        sa(a);
+        swap(a, "sa");
 }
 
 void sort_3(t_list **a)
 {
     if ((*a)->index == 2)
-        ra(a);
+        rotate(a, "ra");
     else if ((*a)->next->index == 2)
-        rra(a);
+        rrotate(a, "rra");
     sort_2(a);
 }
 
 void sort_4(t_list **a, t_list **b)
 {
     move_min_top(a);
-    if (*a)
-        pb(a, b);
+    push(a, b, "pb");
     sort_3(a);
-    if (*b)
-        pa(a, b);
+    push(b, a, "pa");
 }
 
 void sort_5(t_list **a, t_list **b)
 {
-   move_min_top(a);
-   if (*a)
-        pb(a, b);
-   sort_4(a, b);
-   if (*b)
-        pa(a, b);
+    move_min_top(a);
+    push(a, b, "pb");
+    sort_4(a, b);
+    push(b, a, "pa");
 }
 
 void small_sort(t_list **a, t_list **b)

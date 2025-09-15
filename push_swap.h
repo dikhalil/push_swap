@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 14:55:02 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/13 23:26:10 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 21:11:38 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,19 @@
 #include <limits.h>
 
 /* ---------------- utils ---------------- */
+int has_duplicates(t_list *a);
 int parse_args(char **argv, t_list **a);
 int is_sorted(t_list *a);
-void index_stack(t_list *s);
-void move_min_top(t_list **s);
-void del_int(void *content);
+void index_stack(t_list **a);
+void move_min_top(t_list **a);
 t_list      *ft_lstlastprev(t_list *lst);
 
-/* ---------------- Push Swap ---------------- */
-
-void push_swap(t_list **a, t_list **b);
-
-/* ---------------- Swap ---------------- */
-void        sa(t_list **a);
-void        sb(t_list **b);
-void        ss(t_list **a, t_list **b);
-
-/* ---------------- Push ---------------- */
-void        pa(t_list **a, t_list **b);
-void        pb(t_list **a, t_list **b);
-
-/* ---------------- Rotate ---------------- */
-void        ra(t_list **a);
-void        rb(t_list **b);
-void        rr(t_list **a, t_list **b);
-
-/* ---------------- Reverse Rotate ---------------- */
-void        rra(t_list **a);
-void        rrb(t_list **b);
-void        rrr(t_list **a, t_list **b);
+/* ---------------- Operations ---------------- */
+void push(t_list **from, t_list **to, char *op);
+void swap(t_list **stack, char *op);
+void rotate(t_list **stack, char *op);
+void rrotate(t_list **stack, char *op);
+void mix(t_list **a, t_list **b, char *op);
 
 /* ---------------- Small Sort ---------------- */
 void        sort_2(t_list **a);
@@ -55,5 +39,8 @@ void        small_sort(t_list **a, t_list **b);
 
 /* ---------------- Radix Sort ---------------- */
 void        radix_sort(t_list **a, t_list **b);
+
+/* ---------------- Push Swap ---------------- */
+void push_swap(t_list **a, t_list **b);
 
 #endif

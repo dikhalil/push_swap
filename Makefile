@@ -1,11 +1,7 @@
 # ---------------- Source files ----------------
-SRCS =	main.c \
-		push_swap.c \
+SRCS =	push_swap.c \
 		utils.c \
-		swap.c \
-		push.c \
-		rotate.c \
-		reverse_rotate.c \
+		ops.c \
 		small_sort.c \
 		radix_sort.c
 
@@ -30,7 +26,7 @@ $(NAME): $(LIBFT) $(OBJS)
 
 # Build libft if not already
 $(LIBFT):
-	make -C $(LIBFT_PATH) all bonus
+	make -C $(LIBFT_PATH) all
 
 # ---------------- Clean object files ----------------
 clean:

@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 21:29:37 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/14 01:04:27 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/15 20:42:59 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int max_index(t_list *a)
     index = 0;
     while (tmp)
     {
-        if (index < tmp->index)
+        if (tmp->index > index)
             index = tmp->index;
         tmp = tmp->next;
     }
@@ -41,23 +41,26 @@ int bits_count(t_list *a, int (*max_index) (t_list *a))
 void radix_sort(t_list **a, t_list **b)
 {
     int i;
+    int j;
     int bits;
     int size;
     
     i = 0;
     bits = bits_count(*a, &max_index);
+    size = ft_lstsize(*a);
     while (i < bits)
     {
-        size = ft_lstsize(*a);
-        while (size--)
+        j = 0;
+        while (j < size)
         {
-            if ((((*a)->index >> i) & 1))
-                ra(a);
+            if (((*a)->index >> i & 1))
+                rotate(a, "ra");
             else 
-                pb(a, b);
+                push(a, b, "pb");
+            j++;
         }
         while (*b)
-            pa(a, b);
+            push(b, a, "pa");
         i++;
     }
 }
