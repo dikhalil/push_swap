@@ -6,7 +6,7 @@
 /*   By: dikhalil <dikhalil@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 01:12:03 by dikhalil          #+#    #+#             */
-/*   Updated: 2025/09/15 18:49:32 by dikhalil         ###   ########.fr       */
+/*   Updated: 2025/09/17 09:06:22 by dikhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long	ft_atoi(const char *str)
 {
-	int	i;
-	int	flag;
+	int		i;
+	int		flag;
 	long	num;
 
 	i = 0;
