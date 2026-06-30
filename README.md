@@ -37,6 +37,5 @@ First it maps each number to an index (its rank among all numbers). This normali
 ## Notes
 
 - Uses a linked list internally. Stack A starts with all numbers, stack B is the temp buffer.
-- The atoi implementation doesn't check for long overflow. Numbers that overflow long during parsing have undefined behavior (usually wraps to something out of int range and gets caught).
 
 Made for 42 Amman, dikhalil.
